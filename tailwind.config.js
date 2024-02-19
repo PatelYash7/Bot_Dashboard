@@ -6,6 +6,12 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      main:["Jost", "sans-serif" ]
+    },
+    width:{
+      
+    }
   },
   plugins: [],
 }

@@ -8,7 +8,7 @@ function Home(): JSX.Element {
         <Navbar/>
       </div>
       <div className=" flex justify-between ">
-        <div className="h-screen bg-green-300 w-[30%]">Hello Home</div>
+        <div className="h-screen bg-green-300 w-[30%] font-main font-medium text-2xl">Hello Home</div>
         <div className="bg-red-300 h-screen w-[70%]">
           <Outlet />
         </div>
