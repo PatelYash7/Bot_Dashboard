@@ -5,13 +5,20 @@ export default {
 	    "./index.html"
   ],
   theme: {
-    extend: {},
+    
     fontFamily:{
       main:["Jost", "sans-serif" ]
     },
-    width:{
-      
-    }
+    extend: {
+      colors:{
+        'navColor':"#1B2028",
+        'sideColor':"#202731",
+        'mainColor':"#212831",
+        'lightbg':'#272B33',
+        'hoverbg':'#32373E',
+        'dropdownbg':'#181F25'
+      },
+    },
   },
   plugins: [],
 }
