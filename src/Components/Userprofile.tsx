@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useSetRecoilState } from "recoil";
+import { toggleState } from "../Atoms/State";
 
 interface Props {
   name: string;
@@ -6,7 +7,7 @@ interface Props {
 }
 function Userprofile(props: Props): JSX.Element {
   const { name, img } = props;
-  const [isOpen, setIsopen] = useState(false);
+  const isToggleState = useSetRecoilState(toggleState);
   return (
     <div className={"flex items-center justify-between gap-4 px-2 py-1 rounded-3xl hover:bg-[#32373E] hover:transition transition hover:duration-200"}>
       <div className="flex items-center gap-3 justify-evenly">
@@ -16,7 +17,7 @@ function Userprofile(props: Props): JSX.Element {
         <div className="text-white text-sm font-medium">{name}</div>
       </div>
       <div className="text-center text-white flex items-center justify-center">
-        <button onClick={(): void => setIsopen(!isOpen)} className="">
+        <button onClick={(): void => isToggleState(prev=>!prev)} className="">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
