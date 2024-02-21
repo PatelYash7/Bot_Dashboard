@@ -2,11 +2,9 @@ import ProfileBox from "./ProfileBox";
 import image from "../Resources/images/TechTOnions Logo Compact 13.png"
 import Userprofile from "./Userprofile";
 
-
 function Navbar(): JSX.Element {
   const img: string =
     "https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg";
-
   return (
       <div className="flex justify-between gap-10 items-center min-w-full">
         <div className="flex items-center gap-10">
@@ -26,6 +24,7 @@ function Navbar(): JSX.Element {
           <Userprofile name="Yash" img={img} />
           </button>
         </div>
+        
       </div>
   );
 }
