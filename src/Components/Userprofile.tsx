@@ -12,7 +12,7 @@ function Userprofile(props: Props): JSX.Element {
     <div className={"flex items-center justify-between gap-4 px-2 py-1 rounded-3xl hover:bg-[#32373E] hover:transition transition hover:duration-200"}>
         {/* Image  And Name*/}
       <div className="flex items-center gap-3 justify-evenly">
-        <div className="rounded h-6 w-6">
+        <div className="rounded h-5 w-5">
           <img src={img} className="h-full w-full rounded-full" alt="" />
         </div>
         <div className="text-white text-sm font-medium">{name}</div>
@@ -26,7 +26,7 @@ function Userprofile(props: Props): JSX.Element {
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
-            className="w-5 h-5"
+            className="w-4 h-4"
           >
             <path
               strokeLinecap="round"
@@ -37,7 +37,7 @@ function Userprofile(props: Props): JSX.Element {
         </button>
       </div>
       {isOpen?
-          <div className="w-[8%] h-[10%] absolute right-8 top-14 z-1 transition">
+          <div className="w-[8%] h-[10%] absolute right-14 top-12 z-1 transition">
             <Dropdown/>
           </div>:
         ""}

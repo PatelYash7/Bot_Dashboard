@@ -9,7 +9,7 @@ function Navbar(): JSX.Element {
       <div className="flex justify-between gap-10 items-center min-w-full">
         <div className="flex items-center gap-10">
           {/* Logo and Name */}
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <img src={image}  className="  h-10 w-10 rounded-2xl"alt="" />
             <p className="text-white">TechTOnion</p>
           </div>

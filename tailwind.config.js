@@ -13,10 +13,11 @@ export default {
       colors:{
         'navColor':"#1B2028",
         'sideColor':"#202731",
-        'mainColor':"#212831",
+        'mainColor':"#28313c",
         'lightbg':'#272B33',
         'hoverbg':'#32373E',
-        'dropdownbg':'#181F25'
+        'dropdownbg':'#181F25',
+        'sidebarHead':'#383d45'
       },
     },
   },
