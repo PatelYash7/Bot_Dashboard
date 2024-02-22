@@ -16,6 +16,7 @@ import Settings_general from "./Pages/Settings_general.tsx";
 import WelcomeMes from "./Pages/WelcomeMes.tsx";
 import ErrorRouter from "./Pages/ErrorRouter.tsx";
 import { RecoilRoot } from "recoil";
+import AutoModeration from "./Pages/AutoModeration.tsx";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ const router = createBrowserRouter([
       {
         path: "moderation",
         element: <Moderation />,
+      },
+      {
+        path: "automoderation",
+        element: <AutoModeration />,
       },
       {
         path: "notification",
