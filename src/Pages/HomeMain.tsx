@@ -1,6 +1,7 @@
 function HomeMain():JSX.Element {
   return (
-    <div className="font-medium text-2xl">Hello Home</div>
+    <div className="font-medium flex-col text-2xl flex  justify-center items-center ">
+    </div>
   )
 }
 
