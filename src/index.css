@@ -4,4 +4,5 @@
 @tailwind utilities;
 html{
     font-family: "Jost", "sans-serif";
+    overflow: hidden;
 }
