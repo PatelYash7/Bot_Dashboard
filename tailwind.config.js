@@ -17,7 +17,8 @@ export default {
         'lightbg':'#272B33',
         'hoverbg':'#32373E',
         'dropdownbg':'#181F25',
-        'sidebarHead':'#383d45'
+        'sidebarHead':'#383d45',
+        'blueHead':'#41bbff'
       },
     },
   },
