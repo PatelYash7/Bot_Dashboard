@@ -18,11 +18,7 @@ function Navbar(): JSX.Element {
           </div>
         </div>
         <div className="flex items-center ">
-          <button onClick={(): void => {
-            console.log("Clicked");
-          }} className="">
           <Userprofile name="Yash" img={img} />
-          </button>
         </div>
         
       </div>

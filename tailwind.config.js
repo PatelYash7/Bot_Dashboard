@@ -11,15 +11,17 @@ export default {
     },
     extend: {
       colors:{
-        'navColor':"#1B2028",
-        'sideColor':"#202731",
-        'mainColor':"#28313c",
+        'navColor':"#1b2028",
+        'sideColor':"#22242f",
+        'mainColor':"#212831",
         'lightbg':'#272B33',
         'hoverbg':'#32373E',
         'dropdownbg':'#181F25',
         'sidebarHead':'#383d45',
-        'blueHead':'#41bbff'
+        'blueHead':'#41bbff',
+        'cardBox':'#293039'
       },
+      
     },
   },
   plugins: [],
