@@ -8,7 +8,7 @@ function Home(): JSX.Element {
   return (
     <div className="flex flex-col relative max-h-screen">
       {/* Navbar */}
-      <div className="h-12   bg-navColor flex items-center px-14 py-4 sticky top-0 z-10">
+      <div className="h-12 bg-navColor flex items-center px-16  py-4 sticky top-0 z-10">
         <Navbar />
       </div>
       {/* Main Content */}
@@ -29,7 +29,7 @@ function Home(): JSX.Element {
           </div>
         </div>
         {/* Display Components */}
-        <div className=" bg-mainColor h-screen w-[80%] pr-14 absolute left-[20%] overflow-y-auto">
+        <div className=" bg-mainColor h-screen w-[80%] pr-14 absolute left-[20%] overflow-y-auto ">
           <Outlet />
         </div>
       </div>
