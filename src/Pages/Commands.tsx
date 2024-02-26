@@ -1,6 +1,10 @@
+import Heading from "../Components/Heading"
+
 function Commands():JSX.Element {
   return (
-    <div>Commands</div>
+    <div className="mt-8">
+      <Heading head={"Commands"}/>
+    </div>
   )
 }
 

@@ -7,20 +7,20 @@ html{
     overflow: hidden;
 }
 
-*::-webkit-scrollbar {
+/* sc ::-webkit-scrollbar {
     max-width: 6px;
     padding: 5px;
     border-radius: 10%;
-}
+ }
 
   
-  *::-webkit-scrollbar-thumb {
+  sc::-webkit-scrollbar-thumb {
     background-color: #1b2028;
-    /* background-color: aqua; */
+    background-color: aqua;
     border-radius: 10px;
-  }
-  * ::-webkit-scrollbar-thumb:focus {
+   }
+  htm ::-webkit-scrollbar-thumb:focus {
     background: #32373E; 
     transition: cubic-bezier(0.075, 0.82, 0.165, 1);
     animation-duration: 1000ms;
-  }
+  }  */
