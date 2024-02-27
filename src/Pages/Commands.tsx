@@ -1,3 +1,4 @@
+import { Switch } from "@mui/material";
 import Button from "../Components/Button";
 import Heading from "../Components/Heading";
 import Icon from "../Resources/images/IconGit.png";
@@ -71,12 +72,32 @@ function Commands(): JSX.Element {
           <div className="">
             <div className="text-2xl font-semibold">Prefixes</div>
             <div className="text-base text-gray-400">
-              Put one of the following Prefixes in front of your message to execute Bot Commands
+              Put one of the following Prefixes in front of your message to
+              execute Bot Commands
             </div>
           </div>
         </div>
         <div className="flex items-center justify-center ">
           <Button text={"Add prefix"} route="/custom-command" />
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
+        <div className="flex justify-center gap-4 items-center  text-white">
+          <div className="">
+            <div className="text-2xl font-semibold">Command Not Found</div>
+            <div className="text-base text-gray-400">
+              Sent when an executed command doesn't exist.
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center ">
+          <Switch
+            // checked={checked}
+            // onChange={handleChange}
+            color={"success"}
+            inputProps={{ "aria-label": "controlled" }}
+          />
         </div>
       </div>
     </div>
