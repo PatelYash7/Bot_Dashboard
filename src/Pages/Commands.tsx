@@ -2,6 +2,7 @@ import { Switch } from "@mui/material";
 import Button from "../Components/Button";
 import Heading from "../Components/Heading";
 import Icon from "../Resources/images/IconGit.png";
+import Midheading from "../Components/Midheading";
 
 function Commands(): JSX.Element {
   return (
@@ -82,23 +83,88 @@ function Commands(): JSX.Element {
         </div>
       </div>
 
-      <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-        <div className="flex justify-center gap-4 items-center  text-white">
-          <div className="">
-            <div className="text-2xl font-semibold">Command Not Found</div>
-            <div className="text-base text-gray-400">
-              Sent when an executed command doesn't exist.
+      <div className="mt-8 mb-8 ">
+        <Midheading head={"Error Message"} />
+
+        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
+          <div className="flex justify-center gap-4 items-center  text-white">
+            <div className="">
+              <div className="text-2xl font-semibold">Command Not Found</div>
+              <div className="text-base text-gray-400">
+                Sent when an executed command doesn't exist.
+              </div>
             </div>
           </div>
+          <div className="flex items-center justify-center ">
+            <Switch
+              // checked={checked}
+              // onChange={handleChange}
+              color={"success"}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          </div>
         </div>
-        <div className="flex items-center justify-center ">
-          <Switch
-            // checked={checked}
-            // onChange={handleChange}
-            color={"success"}
-            inputProps={{ "aria-label": "controlled" }}
-          />
+
+        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
+          <div className="flex justify-center gap-4 items-center  text-white">
+            <div className="">
+              <div className="text-2xl font-semibold">Wrong command Usage</div>
+              <div className="text-base text-gray-400">
+                sent when an existing command is used incorrectly.
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center ">
+            <Switch
+              // checked={checked}
+              // onChange={handleChange}
+              color={"success"}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          </div>
         </div>
+
+        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
+          <div className="flex justify-center gap-4 items-center  text-white">
+            <div className="">
+              <div className="text-2xl font-semibold">
+                No command Permissions
+              </div>
+              <div className="text-base text-gray-400">
+                sent when an unpermitted user is executing an existing command.
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center ">
+            <Switch
+              // checked={checked}
+              // onChange={handleChange}
+              color={"success"}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
+          <div className="flex justify-center gap-4 items-center  text-white">
+            <div className="">
+              <div className="text-2xl font-semibold">Disabled in Channel</div>
+              <div className="text-base text-gray-400">
+                Sent when an existing command is executed in channels where its
+                disabled
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center ">
+            <Switch
+              // checked={checked}
+              // onChange={handleChange}
+              color={"success"}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          </div>
+        </div>
+
       </div>
     </div>
   );
