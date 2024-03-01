@@ -18,6 +18,7 @@ import ErrorRouter from "./Pages/ErrorRouter.tsx";
 import { RecoilRoot } from "recoil";
 import AutoModeration from "./Pages/AutoModeration.tsx";
 import MessageType from "./Components/MessageType.tsx";
+import LevelSetup from "./Components/LevelSetup.tsx";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ const router = createBrowserRouter([
           {
             path:"/moderation/message-type",
             element:<MessageType/>
+          },
+          {
+            path:"/moderation/level-setup",
+            element:<LevelSetup/>
           }
         ]
       },

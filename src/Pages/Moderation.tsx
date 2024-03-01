@@ -1,50 +1,52 @@
+import { useRecoilState } from "recoil";
 import Heading from "../Components/Heading";
-import {
-  Link,
-  Outlet,
-  useLocation,
-} from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
+import { moderationToggleState } from "../Atoms/State";
 
 function Moderation(): JSX.Element {
+  const[view,Setview]=useRecoilState(moderationToggleState)
   const location = useLocation();
   const { pathname } = location;
-  console.log(pathname);
   const DesiredRoute = "/moderation/message-type";
+  console.log(view)
   return (
     <div className="mt-10 ml-8">
-
-        {pathname === DesiredRoute ?<div className="my-4 flex justify-start gap-4 items-center">
-        <Link to={"/moderation"}>
-          <Heading head="Moderation" />
-        </Link>   
-        <div className="text-justify mt-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="white"
-            className="w-8 h-8"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="m8.25 4.5 7.5 7.5-7.5 7.5"
-            />
-          </svg>
+      {
+      view ? (
+        <div className="my-4 flex justify-start gap-4 items-center">
+          <Link to={"/moderation"} onClick={():void=>{Setview(prev => !prev)}} >
+            <Heading head="Moderation" />
+          </Link>
+              <div className="text-justify mt-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="white"
+                  className="w-8 h-8"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                  />
+                </svg>
+              </div>
+          <div className="text-white cursor-default text-3xl mt-2 font-medium">
+            Message Type
+          </div>
         </div>
-        <div className="text-white cursor-default text-3xl mt-2 font-medium">
-          Message Type
-        </div>
-      </div>:<Link to={"/moderation"}>
+      ) : (
+        <Link to={"/moderation"} >
           <Heading head="Moderation" />
-        </Link>   }
-      
+        </Link>
+      )}
 
       {DesiredRoute === pathname ? (
         <Outlet />
       ) : (
-        <Link to="/moderation/message-type">
+        <Link to="/moderation/message-type" onClick={():void=>{Setview(true)}}>
           <div className="w-full bg-lightbg hover:bg-hoverbg transition-all rounded-lg mt-4 py-3 px-3 flex justify-start gap-3 items-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
