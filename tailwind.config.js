@@ -19,7 +19,8 @@ export default {
         'dropdownbg':'#181F25',
         'sidebarHead':'#383d45',
         'blueHead':'#41bbff',
-        'cardBox':'#293039'
+        'cardBox':'#293039',
+        'LevelBox':"#17181e"
       },
       
     },
