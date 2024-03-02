@@ -36,9 +36,9 @@ export const DataSidebar = [
 
 export const Modules = [
     {
-        name:"Auto Moderation",
+        name:"Levels",
         img:img5,
-        route:'/automoderation'
+        route:'/level-setup'
     },
     {
         name:"Moderation",
