@@ -1,6 +1,4 @@
-import { Form } from "react-router-dom";
 import Heading from "../Components/Heading";
-import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 
 function LevelSetup() {
   return (

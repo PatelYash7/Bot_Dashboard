@@ -8,3 +8,7 @@ export const ModerationPath = atom({
     key:"ModerationPath",
     default:" "
 })
+export const NotifPopup = atom({
+    key:"NotifPopup",
+    default:false
+})
