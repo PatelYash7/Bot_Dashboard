@@ -35,12 +35,13 @@ function Notifications(): JSX.Element {
 }
 export function NotificationPopUp(): JSX.Element {
   const [popup,setpopup]=useRecoilState(NotifPopup);
+  
   return (
     <div className="bg-cardBox rounded-lg w-[30%]  ">
       {/* TopBar */}
       <div className="flex justify-between items-center py-3 px-3 ">
         <div className="flex items-center justify-start gap-2">
-          <img className="w-6 h-6" src={YT} alt="img" />
+          <img onClick={()=>{setpopup(!popup)}} className="w-6 h-6" src={YT} alt="img" />
           <div className="text-white font-semibold text-xl">Add Channel</div>
         </div>
         {/* Cancel Button */}
@@ -71,7 +72,7 @@ export function NotificationPopUp(): JSX.Element {
         <input type="text" className="w-full rounded-lg py-3 px-3 bg-navColor outline-none text-white" placeholder="Channel @handle or ID" />
       </div>
       <div  className="bg-navColor py-6 text-white px-2 flex gap-4 justify-end items-center ">
-          <button type="button" onClick={()=>{setpopup(false)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
+          <button type="button" onClick={()=>{setpopup(!popup)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
           <button type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-1 rounded-md font-medium">Continue</button>
       </div>
     </div>
