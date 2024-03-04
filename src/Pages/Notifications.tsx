@@ -41,12 +41,12 @@ export function NotificationPopUp(): JSX.Element {
       {/* TopBar */}
       <div className="flex justify-between items-center py-3 px-3 ">
         <div className="flex items-center justify-start gap-2">
-          <img onClick={()=>{setpopup(!popup)}} className="w-6 h-6" src={YT} alt="img" />
+          <img  className="w-6 h-6" src={YT} alt="img" />
           <div className="text-white font-semibold text-xl">Add Channel</div>
         </div>
         {/* Cancel Button */}
         <div className="flex items-center justify-center">
-          <button>
+          <button onClick={()=>{setpopup(!popup)}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
