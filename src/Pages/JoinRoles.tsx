@@ -6,12 +6,12 @@ function JoinRoles(): JSX.Element {
   const [options, setOptions] = useState(roles);
   const [inputVal, setInputVal] = useState("");
 
-  // const addOptions = () => {
-  //   if (inputVal.trim() !== "") {
-  //     setOptions([...options, inputVal]);
-  //     setInputVal("");
-  //   }
-  // };
+  const addOptions = () => {
+    if (inputVal.trim() !== "") {
+      setOptions([...options, inputVal]);
+      setInputVal("");
+    }
+  };
   return (
     <div className="mt-10 ml-8">
       <Heading head="Join Roles" />
@@ -22,14 +22,14 @@ function JoinRoles(): JSX.Element {
             All roles listed below will be assigned to every user who joins the
             server.
           </div>
-          {/* <div className="flex justify-between items-center  ">
+          <div className="flex justify-between items-center  ">
             <div className="flex-col flex my-2">
               <input type="text" className="rounded-lg px-2 py-1 bg-navColor outline-none text-white" placeholder="Enter Role" value={inputVal} onChange={(e)=>{setInputVal(e.target.value)}} />
             </div>
             <div>
               <button className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-1 mr-4 rounded-md font-medium text-white text-center" onClick={addOptions}>Add</button>
             </div>
-          </div> */}
+          </div>
           <div className="flex flex-col mt-3">
             <label htmlFor="dropdown" className="text-white text-base font-medium"> Select Role</label>
             <select id="dropdown" className="rounded-lg px-2 py-1 bg-navColor outline-none text-white">
