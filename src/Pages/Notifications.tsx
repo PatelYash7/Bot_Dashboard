@@ -27,7 +27,7 @@ function Notifications(): JSX.Element {
           </div>
         </div>
         <div className="w-20 text-white font-semibold text-center mx-6">
-          <button onClick={()=>{setpopup(false)}} type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-1  rounded-md font-medium">Setup</button>
+          <button onClick={()=>{setpopup(true)}} type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-1  rounded-md font-medium">Setup</button>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@ export function NotificationPopUp(): JSX.Element {
         <input type="text" className="w-full rounded-lg py-3 px-3 bg-navColor outline-none text-white" placeholder="Channel @handle or ID" />
       </div>
       <div  className="bg-navColor py-6 text-white px-2 flex gap-4 justify-end items-center ">
-          <button type="button" onClick={()=>{setpopup(!popup)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
+          <button type="button" onClick={()=>{setpopup(false)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
           <button type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-1 rounded-md font-medium">Continue</button>
       </div>
     </div>
