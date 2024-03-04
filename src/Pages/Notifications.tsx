@@ -27,7 +27,7 @@ function Notifications(): JSX.Element {
           </div>
         </div>
         <div className="w-20 text-white font-semibold text-center mx-6">
-          <button onClick={()=>{setpopup(!popup)}} type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-1  rounded-md font-medium">Setup</button>
+          <button onClick={()=>{setpopup(false)}} type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-1  rounded-md font-medium">Setup</button>
         </div>
       </div>
     </div>
