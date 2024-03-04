@@ -1,6 +1,6 @@
 import Heading from "../Components/Heading";
 import YT from "../Resources/images/YT.png";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import { NotifPopup } from "../Atoms/State";
 
 function Notifications(): JSX.Element {
@@ -71,7 +71,7 @@ export function NotificationPopUp(): JSX.Element {
         <input type="text" className="w-full rounded-lg py-3 px-3 bg-navColor outline-none text-white" placeholder="Channel @handle or ID" />
       </div>
       <div  className="bg-navColor py-6 text-white px-2 flex gap-4 justify-end items-center ">
-          <button type="button" onClick={()=>{setpopup(false)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
+          <button type="button" onClick={()=>{setpopup(!popup)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
           <button type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-1 rounded-md font-medium">Continue</button>
       </div>
     </div>

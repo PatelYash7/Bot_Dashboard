@@ -3,7 +3,6 @@ import Navbar from "../Components/Navbar";
 import SidebarHeader from "../Components/SidebarHeader";
 import Sidebar from "../Components/Sidebar";
 import SidebarSecondHalf from "../Components/SidebarSecondHalf";
-import { NotificationPopUp } from "./Notifications";
 
 function Home(): JSX.Element {
   return (
@@ -34,11 +33,6 @@ function Home(): JSX.Element {
           <Outlet />
         </div>
       </div>
-          {/* <div className=" absolute w-full h-full top-[200%] left-[20%]   z-50">
-        <NotificationPopUp/>
-      </div> */}
-
-      
     </div>
   );
 }
