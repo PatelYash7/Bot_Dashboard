@@ -8,7 +8,7 @@ function Notifications(): JSX.Element {
 
   if(popup){
     return(
-      <div className="flex justify-center items-center w-full h-full">
+      <div className="flex items-center justify-center w-full h-full">
           <NotificationPopUp/>
       </div>
     )
@@ -16,18 +16,18 @@ function Notifications(): JSX.Element {
   return (
     <div className="mt-10 ml-8">
       <Heading head={"Notifications"} />
-      <div className=" bg-lightbg rounded-lg  px-4 py-2 mt-4  flex justify-between items-center ">
-        <div className="flex justify-start gap-2 items-center py-2">
+      <div className="flex items-center justify-between px-4 py-2 mt-4 rounded-lg bg-lightbg">
+        <div className="flex items-center justify-start gap-2 py-2">
           <img className="w-7 h-7 " src={YT} alt="" />
-          <div className="flex flex-col justify-center items-start">
-            <div className="text-white text-2xl font-medium">YouTube</div>
-            <div className="text-gray-400 text-base font-medium">
+          <div className="flex flex-col items-start justify-center">
+            <div className="text-2xl font-medium text-white">YouTube</div>
+            <div className="text-base font-medium text-gray-400">
               Notifications for Published YouTube Videos.
             </div>
           </div>
         </div>
-        <div className="w-20 text-white font-semibold text-center mx-6">
-          <button onClick={()=>{setpopup(true)}} type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-5 py-1  rounded-md font-medium">Setup</button>
+        <div className="w-20 mx-6 font-semibold text-center text-white">
+          <button onClick={()=>{setpopup(true)}} type="button" className="px-5 py-1 font-medium rounded-md bg-gradient-to-r from-cyan-500 to-blue-500">Setup</button>
         </div>
       </div>
     </div>
@@ -39,10 +39,10 @@ export function NotificationPopUp(): JSX.Element {
   return (
     <div className="bg-cardBox rounded-lg w-[30%]  ">
       {/* TopBar */}
-      <div className="flex justify-between items-center py-3 px-3 ">
+      <div className="flex items-center justify-between px-3 py-3 ">
         <div className="flex items-center justify-start gap-2">
           <img  className="w-6 h-6" src={YT} alt="img" />
-          <div className="text-white font-semibold text-xl">Add Channel</div>
+          <div className="text-xl font-semibold text-white">Add Channel</div>
         </div>
         {/* Cancel Button */}
         <div className="flex items-center justify-center">
@@ -64,19 +64,18 @@ export function NotificationPopUp(): JSX.Element {
               </  button>
         </div>
       </div>
-      <div className="my-3 text-base text-gray-400 py-3 px-3">
+      <div className="px-3 py-3 my-3 text-base text-gray-400">
         Enter the Youtube Channel ID.
       </div>
 
-      <div className=" my-3 px-3 ">
-        <input type="text" className="w-full rounded-lg py-3 px-3 bg-navColor outline-none text-white" placeholder="Channel @handle or ID" />
+      <div className="px-3 my-3 ">
+        <input type="text" className="w-full px-3 py-3 text-white rounded-lg outline-none bg-navColor" placeholder="Channel @handle or ID" />
       </div>
-      <div  className="bg-navColor py-6 text-white px-2 flex gap-4 justify-end items-center ">
-          <button type="button" onClick={()=>{setpopup(!popup)}} className="bg-lightbg px-3 py-1 rounded-md font-medium hover:bg-hoverbg">Cancel</button>
-          <button type="button" className="bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-1 rounded-md font-medium">Continue</button>
+      <div  className="flex items-center justify-end gap-4 px-2 py-6 text-white bg-navColor ">
+          <button type="button" onClick={()=>{setpopup(!popup)}} className="px-3 py-1 font-medium rounded-md bg-lightbg hover:bg-hoverbg">Cancel</button>
+          <button type="button" className="px-6 py-1 font-medium rounded-md bg-gradient-to-r from-cyan-500 to-blue-500">Continue</button>
       </div>
     </div>
   );
 }
-
 export default Notifications;

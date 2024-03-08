@@ -5,9 +5,9 @@ function WelcomeMes(): JSX.Element {
     <div className="mt-10 ml-8">
       <Heading head="Welcome Message"/>
       
-      <div className="mt-4 flex flex-col gap-4">
+      <div className="flex flex-col gap-4 mt-4">
 
-        <div className=" text-gray-400 text-base font-medium">
+        <div className="text-base font-medium text-gray-400 ">
           Enter the Welcome message here.
         </div>
 

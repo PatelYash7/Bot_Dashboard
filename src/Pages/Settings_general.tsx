@@ -8,22 +8,22 @@ function Settings_general(): JSX.Element {
   Administrator or manage guild permissions are automatically adde`
 
   return (
-    <div className="flex flex-col ml-8 mt-10 mb-5">
+    <div className="flex flex-col mt-10 mb-5 ml-8">
       <Heading head={"General Settings"} />
       {/* Date components */}
-      <div className="rounded-lg mt-8">
-        <div className="flex justify-between bg-hoverbg min-w-full p-3 rounded-lg text-white">
+      <div className="mt-8 rounded-lg">
+        <div className="flex justify-between min-w-full p-3 text-white rounded-lg bg-hoverbg">
           <div className="flex flex-col items-start justify-center gap-2">
-            <div className="font-medium text-2xl">Date format</div>
-            <div className=" font-normal">
+            <div className="text-2xl font-medium">Date format</div>
+            <div className="font-normal ">
               {/* Needs to be Updated */}
               Preview<span>: 2024/02/26</span>
             </div>
           </div>
-          <div className="px-14 flex justify-center py-0 my-3 items-center bg-lightbg rounded-lg">
+          <div className="flex items-center justify-center py-0 my-3 rounded-lg px-14 bg-lightbg">
             <input
               type="text"
-              className=" bg-transparent w-fit h-fit text-center border-none text-black "
+              className="text-center text-black bg-transparent border-none  w-fit h-fit"
               placeholder="YYYY/MM/DD"
             />
           </div>
