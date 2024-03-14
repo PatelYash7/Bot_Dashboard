@@ -6,16 +6,16 @@ import SidebarSecondHalf from "../Components/SidebarSecondHalf";
 
 function Home(): JSX.Element {
   return (
-    <div className="flex flex-col relative h-100vh">
+    <div className="relative flex flex-col h-100vh">
       {/* Navbar */}
-      <div className="h-12 bg-navColor flex items-center px-16  py-4 sticky top-0 z-10">
+      <div className="sticky top-0 z-10 flex items-center h-12 px-16 py-4 bg-navColor">
         <Navbar />
       </div>
       {/* Main Content */}
-      <div className=" flex justify-between ">
+      <div className="flex justify-between ">
         {/* Sidebar Content */}
         <div className="h-screen bg-sideColor w-[20%] font-main pl-14 fixed top-12 z-10">
-          <div className="flex justify-center items-center">
+          <div className="flex items-center justify-center">
             <SidebarHeader />
           </div>
           <div>
