@@ -1,9 +1,11 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { Auth } from "../Atoms/State";
 
 function ProtectedRoute() {
-    const auth = true;
+    const Authorization:Boolean = useRecoilValue(Auth);
   return (
-    auth?<Outlet/>:<Navigate to={'/login'}/>
+    Authorization?<Outlet/>:<Navigate to={'/login'}/>
     
   )
 }

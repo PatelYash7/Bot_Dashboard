@@ -12,3 +12,7 @@ export const NotifPopup = atom({
     key:"NotifPopup",
     default:false
 })
+export const Auth = atom({
+    key:"Auth",
+    default:false
+})
