@@ -1,5 +1,21 @@
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { getUser} from "../Hooks/Login-hook";
+
+
+
 function Login() {
-  console.log(import.meta.env.VITE_DISCORD_AUTH);
+  const [searchParam] = useSearchParams();
+  const navigate  =useNavigate();
+  const callBack :string|null = searchParam.get("code") || null;
+
+  async function getData(){
+    const data = await getUser({callBack});
+    console.log(data)
+  }
+  if (callBack) {
+    getData();
+    
+  }
   return (
     <div>
       <a href={`${import.meta.env.VITE_DISCORD_AUTH}`}>
@@ -8,5 +24,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
