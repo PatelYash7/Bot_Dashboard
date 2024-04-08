@@ -18,7 +18,7 @@ export interface userData {
     locale: string;
     premium_type: number;
   }
-  
+
   export interface Guild {
     id: string;
     name: string;

@@ -1,5 +1,5 @@
 import { atom} from "recoil";
-import { Guild, User, userData } from "../Interface";
+import { Guild, User, userData} from "../Interface";
 
 export const toggleState = atom({
     key: "toggleState",
@@ -19,6 +19,9 @@ export const UserData =atom<userData>({
     default:{
         user:{} as User,
         guilds:[] as Guild[]
-
     } 
+})
+export const UserId = atom({
+    key:"UserId",
+    default:""
 })

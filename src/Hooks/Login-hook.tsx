@@ -8,34 +8,38 @@ export const setLogin = ({ code }: { code: string }) => {
   useEffect(() => {
     window.localStorage.setItem("code", code);
     navigate("/");
-  },[]);
+  }, []);
 };
-export const setLogout = ()=>{
+export const setLogout = () => {
   window.localStorage.removeItem("code");
   window.location.reload();
-}
-export const getData = ()=>{
-  const[loading,setLoading]=useState(true);
-  const[Data,setData]=useState<userData>();
+};
+export const getData = () => {
+  const [loading, setLoading] = useState(true);
+  const [Data, setData] = useState<userData>();
+  
   const code = window.localStorage.getItem("code");
   const effectRan = useRef(false);
-  useEffect(()=>{
-    if(effectRan.current === false){
 
+  useEffect(() => {
+    if (effectRan.current === false) {
       const fetchData = async () => {
-          axios.get(`http://34.233.124.135/callback/?code=${code}`).then((res) => {
-              setData(res.data);
-              setLoading(false);
+        axios
+          .get(`http://34.233.124.135/callback/?code=${code}`)
+          .then((res) => {
+            setData(res.data);
+            setLoading(false);
           });
       };
       fetchData();
-  }
-  return ()=>{
-      effectRan.current=true;
-  }
-  },[])
+    }
+    return () => {
+      effectRan.current = true;
+    };
+  }, []);
+
   return {
     loading,
-    Data
-  }
-}
+    Data,
+  };
+};
