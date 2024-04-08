@@ -12,9 +12,6 @@ function Navbar(): JSX.Element {
             <img src={image}  className="w-10 h-10 rounded-2xl"alt="" />
             <p className="text-white">TechTOnion</p>
           </div>
-          {/* <div className=" bg-lightbg rounded-3xl">
-            <ProfileBox name="Near Hack's" img={img} />
-          </div> */}
         </div>
         <div className="flex items-center ">
           <Userprofile name="Yash" img={img} />

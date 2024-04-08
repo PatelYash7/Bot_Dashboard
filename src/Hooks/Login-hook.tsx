@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { userData } from "../Interface";
 
 export const setLogin = ({ code }: { code: string }) => {
 
@@ -9,3 +11,23 @@ export const setLogin = ({ code }: { code: string }) => {
     navigate("/");
   },[]);
 };
+
+export const setLogout = ()=>{
+  window.localStorage.removeItem("code");
+  window.location.reload();
+}
+export const getData = ()=>{
+  const[loading,setLoading]=useState(true);
+  const[Data,setData]=useState<userData   >();
+  const code = window.localStorage.getItem("code");
+  useEffect(()=>{
+    axios.get(`http://34.233.124.135/callback/?code=${code}`).then(res=>{
+      setData(res.data);
+      setLoading(false);
+    })
+  },[])
+  return {
+    loading,
+    Data
+  }
+}
