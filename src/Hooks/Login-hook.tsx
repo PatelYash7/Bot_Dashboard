@@ -10,10 +10,12 @@ export const setLogin = ({ code }: { code: string }) => {
     navigate("/");
   }, []);
 };
+
 export const setLogout = () => {
   window.localStorage.removeItem("code");
   window.location.reload();
 };
+
 export const getData = () => {
   const [loading, setLoading] = useState(true);
   const [Data, setData] = useState<userData>();
