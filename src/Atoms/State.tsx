@@ -16,3 +16,9 @@ export const Auth = atom({
     key:"Auth",
     default:false
 })
+
+export const UserData =atom({
+    key:"UserData",
+    default:{
+    } 
+})
