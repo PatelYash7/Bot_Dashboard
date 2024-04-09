@@ -1,10 +1,8 @@
-import { useRecoilValue } from "recoil";
 import Navbar from "../Components/Navbar";
 import { getData } from "../Hooks/Login-hook";
-import {  UserId } from "../Atoms/State";
 
 
-export const Serverlist = () => {
+export  const ServerlistComponent = () => {
   
   const id =getData(); 
   const flag = window.localStorage.getItem("id");
@@ -16,7 +14,7 @@ export const Serverlist = () => {
       </div>
       {id || flag ? (
         <div>
-            <ServerCard />
+            
         </div>
       ) : (
         <div className="flex items-center justify-center h-screen text-4xl font-bold text-white bg-slate-500 ">
@@ -26,13 +24,3 @@ export const Serverlist = () => {
     </div>
   );
 };
-
-export const ServerCard =()=>{
-    const UserDetails = useRecoilValue(UserId);
-    // console.log(UserDetails);
-    return (
-        <div className="h-screen text-white bg-mainColor">
-            {UserDetails}
-        </div>
-    )
-}
