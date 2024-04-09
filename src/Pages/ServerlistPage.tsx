@@ -1,10 +1,9 @@
 import Navbar from "../Components/Navbar";
 import { getData } from "../Hooks/Login-hook";
+import { useUserData } from "../Hooks/User-data-hook";
 
-
-export  const ServerlistComponent = () => {
-  
-  const id =getData(); 
+export const ServerlistPage = () => {
+  const id = getData();
   const flag = window.localStorage.getItem("id");
 
   return (
@@ -14,7 +13,7 @@ export  const ServerlistComponent = () => {
       </div>
       {id || flag ? (
         <div>
-            
+          <ServerlistComponent />
         </div>
       ) : (
         <div className="flex items-center justify-center h-screen text-4xl font-bold text-white bg-slate-500 ">
@@ -23,4 +22,19 @@ export  const ServerlistComponent = () => {
       )}
     </div>
   );
+};
+export const ServerlistComponent = () => {
+  const { user, loader } = useUserData();
+  return(
+  <div>
+    {!loader ? (
+      <div>
+        {user.guilds.map((key) => (
+          <div>{key.id}</div>
+        ))}
+      </div>
+    ) : (
+      <div>...Loding</div>
+    )}
+  </div>)
 };

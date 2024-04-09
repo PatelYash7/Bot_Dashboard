@@ -21,7 +21,8 @@ export const UserData =atom<userData>({
         guilds:[] as Guild[]
     } 
 })
-export const UserId = atom({
-    key:"UserId",
-    default:""
+export const loading = atom({
+    key:"loading",
+    default:true
 })
+
