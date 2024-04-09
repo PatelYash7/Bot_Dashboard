@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef} from "react";
 import axios from "axios";
-import { userData } from "../Interface";
 
 export const setLogin = ({ code }: { code: string }) => {
   const navigate = useNavigate();
@@ -13,25 +12,24 @@ export const setLogin = ({ code }: { code: string }) => {
 
 export const setLogout = () => {
   window.localStorage.removeItem("code");
+  window.localStorage.removeItem("id");
   window.location.reload();
 };
 
 export const getData = () => {
-  const [loading, setLoading] = useState(true);
-  const [Data, setData] = useState<userData>();
   
   const code = window.localStorage.getItem("code");
+  const id = window.localStorage.getItem("id");
   const effectRan = useRef(false);
 
   useEffect(() => {
-    if (effectRan.current === false) {
+    if (effectRan.current === false && id===null) {
       const fetchData = async () => {
-        axios
-          .get(`http://34.233.124.135/callback/?code=${code}`)
-          .then((res) => {
-            setData(res.data);
-            setLoading(false);
-          });
+        
+          const Response = await axios.get(`http://34.233.124.135/callback/?code=${code}`);
+          if(Response.data){
+            await window.localStorage.setItem("id",Response.data.user.id)
+          }
       };
       fetchData();
     }
@@ -39,9 +37,4 @@ export const getData = () => {
       effectRan.current = true;
     };
   }, []);
-
-  return {
-    loading,
-    Data,
-  };
 };
