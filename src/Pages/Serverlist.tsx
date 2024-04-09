@@ -5,15 +5,16 @@ import {  UserId } from "../Atoms/State";
 
 
 export const Serverlist = () => {
-  const id = window.localStorage.getItem("id");
-  getData();
+  
+  const id =getData(); 
+  const flag = window.localStorage.getItem("id");
 
   return (
     <div>
       <div className="sticky top-0 z-10 flex items-center h-12 px-16 py-4 bg-navColor">
         <Navbar />
       </div>
-      {id ? (
+      {id || flag ? (
         <div>
             <ServerCard />
         </div>

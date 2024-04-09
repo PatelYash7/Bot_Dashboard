@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useEffect, useRef} from "react";
+import { useEffect, useRef, useState} from "react";
 import axios from "axios";
 
 export const setLogin = ({ code }: { code: string }) => {
@@ -20,15 +20,17 @@ export const getData = () => {
   
   const code = window.localStorage.getItem("code");
   const id = window.localStorage.getItem("id");
+  const [idData,setidData]=useState();
   const effectRan = useRef(false);
-
+  
   useEffect(() => {
     if (effectRan.current === false && id===null) {
       const fetchData = async () => {
         
-          const Response = await axios.get(`http://34.233.124.135/callback/?code=${code}`);
-          if(Response.data){
-            await window.localStorage.setItem("id",Response.data.user.id)
+        const Response = await axios.get(`http://34.233.124.135/callback/?code=${code}`);
+        if(Response.data){
+          await window.localStorage.setItem("id",Response.data.user.id)
+          setidData(Response.data.user.id);
           }
       };
       fetchData();
@@ -37,4 +39,5 @@ export const getData = () => {
       effectRan.current = true;
     };
   }, []);
+  return idData;
 };
