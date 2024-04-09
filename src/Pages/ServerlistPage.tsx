@@ -1,6 +1,6 @@
 import Navbar from "../Components/Navbar";
+import { ServerlistComponent } from "../Components/ServerlistComponent";
 import { getData } from "../Hooks/Login-hook";
-import { useUserData } from "../Hooks/User-data-hook";
 
 export const ServerlistPage = () => {
   const id = getData();
@@ -23,18 +23,4 @@ export const ServerlistPage = () => {
     </div>
   );
 };
-export const ServerlistComponent = () => {
-  const { user, loader } = useUserData();
-  return(
-  <div>
-    {!loader ? (
-      <div>
-        {user.guilds.map((key) => (
-          <div>{key.id}</div>
-        ))}
-      </div>
-    ) : (
-      <div>...Loding</div>
-    )}
-  </div>)
-};
+
