@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 
-import {useRecoilValue, useSetRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import { UserData, loading } from "../Atoms/State";
 import { ServerListInterface } from "../Interface";
 
 export const useUserData = () => {
   const id = window.localStorage.getItem("id");
   const setUser = useSetRecoilState(UserData);
-  const  setLoader = useSetRecoilState(loading);
+  const setLoader = useSetRecoilState(loading);
   const effectRan = useRef(false);
   useEffect(() => {
     if (effectRan.current === false) {
@@ -16,45 +16,42 @@ export const useUserData = () => {
         const Response = await axios.get(
           `http://34.233.124.135/available_users?user_id=${id}`
         );
-          setLoader(false);
-          setUser(Response.data);
-        
+        setLoader(false);
+        setUser(Response.data);
       };
       fetchData();
     }
     return () => {
       effectRan.current = true;
     };
-  });
+  }, []);
 };
 
-
 export const useGetserverdata = () => {
-  useUserData();  
-  const {guilds} = useRecoilValue(UserData);
-  const loader = useRecoilValue(loading);
-  const[totalServer,setTotalServer]=useState<ServerListInterface>();
-  const effectRan = useRef(false);
+  const { guilds } = useRecoilValue(UserData);
+  const [totalServer, setTotalServer] = useState<ServerListInterface>();
+  const effectRan = useRef(true);
+  useUserData();
   useEffect(() => {
-    if (effectRan.current === false && !loader) {
+    if (effectRan.current === true) {
       const fetchData = async () => {
-        const Response= await axios.get(`http://34.233.124.135/server_List/`)
+        const Response = await axios.get(`http://34.233.124.135/server_List/`);
         setTotalServer(Response.data);
-
       };
       fetchData();
     }
     return () => {
-      effectRan.current = true;
+      effectRan.current = false;
     };
-  });
-  const userServerWithPresence = guilds.map(server=>({
+  }, []);
+  const userServerWithPresence = guilds.map((server) => ({
     ...server,
-    isPresent:totalServer?.ServerList.some(listServer=>listServer.id===server.id)
-  }))
+    isPresent: totalServer?.ServerList.some(
+      (listServer) => listServer.id === server.id
+    ),
+  }));
 
   return {
-    userServerWithPresence
-  }
-  
+    userServerWithPresence,
+  };
 };
