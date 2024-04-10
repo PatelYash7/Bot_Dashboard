@@ -28,3 +28,13 @@ export interface userData {
     permissions_new: string;
     features: any[];
   }
+
+  export interface ServerListInterface {
+    ServerList: ServerList[]
+  }
+  
+  export interface ServerList {
+    name: string
+    id: string
+    icon_url: string
+  }

@@ -1,8 +1,9 @@
 import axios from "axios";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {useRecoilValue, useSetRecoilState } from "recoil";
 import { UserData, loading } from "../Atoms/State";
+import { ServerListInterface } from "../Interface";
 
 export const useUserData = () => {
   const id = window.localStorage.getItem("id");
@@ -15,8 +16,8 @@ export const useUserData = () => {
         const Response = await axios.get(
           `http://34.233.124.135/available_users?user_id=${id}`
         );
-          await setLoader(false);
-          await setUser(Response.data);
+          setLoader(false);
+          setUser(Response.data);
         
       };
       fetchData();
@@ -27,9 +28,33 @@ export const useUserData = () => {
   });
 };
 
+
 export const useGetserverdata = () => {
   useUserData();  
-  const guilds = useRecoilValue(UserData);
+  const {guilds} = useRecoilValue(UserData);
   const loader = useRecoilValue(loading);
-  return { guilds, loader };
+  const[totalServer,setTotalServer]=useState<ServerListInterface>();
+  const effectRan = useRef(false);
+  useEffect(() => {
+    if (effectRan.current === false && !loader) {
+      const fetchData = async () => {
+        const Response= await axios.get(`http://34.233.124.135/server_List/`)
+        setTotalServer(Response.data);
+
+      };
+      fetchData();
+    }
+    return () => {
+      effectRan.current = true;
+    };
+  });
+  const userServerWithPresence = guilds.map(server=>({
+    ...server,
+    isPresent:totalServer?.ServerList.some(listServer=>listServer.id===server.id)
+  }))
+
+  return {
+    userServerWithPresence
+  }
+  
 };
