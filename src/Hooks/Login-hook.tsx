@@ -13,6 +13,7 @@ export const setLogin = ({ code }: { code: string }) => {
 export const setLogout = () => {
   window.localStorage.removeItem("code");
   window.localStorage.removeItem("id");
+  window.localStorage.removeItem("guild_id");
   window.location.reload();
 };
 
