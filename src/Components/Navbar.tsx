@@ -5,7 +5,7 @@ function Navbar(): JSX.Element {
   const img: string =
     "https://images.pexels.com/photos/325521/pexels-photo-325521.jpeg";
   return (
-      <div className="flex items-center justify-between min-w-full gap-8">
+      <div className="flex items-center justify-between h-12 min-w-full gap-8">
         <div className="flex items-center gap-8">
           {/* Logo and Name */}
           <div className="flex items-center gap-2">

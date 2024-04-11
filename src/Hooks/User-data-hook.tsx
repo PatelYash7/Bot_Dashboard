@@ -49,9 +49,10 @@ export const useGetserverdata = () => {
     isPresent: totalServer?.ServerList.some(
       (listServer) => listServer.id === server.id
     ),
+    iconURL:`https://cdn.discordapp.com/icons/${server.id}/${server.icon}.png?size=1024`
   }));
 
-  return {
+  return {  
     userServerWithPresence,
   };
 };

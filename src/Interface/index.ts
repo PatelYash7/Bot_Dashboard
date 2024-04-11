@@ -38,3 +38,16 @@ export interface userData {
     id: string
     icon_url: string
   }
+
+
+export interface ServerWithPresenceObject {
+  features?: any[]
+  id?: string,
+  owner?: boolean,
+  permissions_new?: string,
+  permissions?: number,
+  icon?: string,
+  name?: string,
+  isPresent?: boolean,
+  iconURL?:string
+}
