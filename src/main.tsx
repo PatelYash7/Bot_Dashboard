@@ -20,80 +20,90 @@ import MessageType from "./Components/MessageType.tsx";
 import LevelSetup from "./Pages/LevelSetup.tsx";
 import ProtectedRoute from "./Pages/ProtectedRoute.tsx";
 import Login from "./Pages/Login.tsx";
+import { MainRoute } from "./Pages/MainRoute.tsx";
+import { ServerlistPage } from "./Pages/ServerlistPage.tsx";
 
 const router = createBrowserRouter([
   {
-    path:'/',
-    element:<ProtectedRoute/>,
-    children:[
+    path: "/",
+    element: <ProtectedRoute />,
+    children: [
       {
-        path: "",
-        element: <Home/>,
-        errorElement: <ErrorRouter />,
+        path: "/",
+        element: <MainRoute/>,
         children: [
           {
             path: "",
-            element: <HomeMain />,
-          },
-          {
-            path: "branding",
-            element: <Branding />,
-          },
-          {
-            path: "join-roles",
-            element: <JoinRoles />,
-          },
-          {
-            path: "commands",
-            element: <Commands />,
-          },
-          {
-            path: "logging",
-            element: <Logging />,
-          },
-          {
-            path: "messages",
-            element: <Messages />,
-          },
-          {
-            path: "moderation",
-            element: <Moderation />,
-            children:[
+            element: <Home />,
+            errorElement: <ErrorRouter />,
+            children: [
               {
-                path:"message-type",
-                element:<MessageType/>
-              }
-            ]
-          },
-          {
-            path: "level-setup",
-            element: <LevelSetup/>,
-          },
-          {
-            path: "notification",
-            element: <Notifications />,
-          },
-          {
-            path: "reaction-roles",
-            element: <ReactionRoles />,
-          },
-          {
-            path: "setting",
-            element: <Settings_general />,
-          },
-          {
-            path: "welcome-message",
-            element: <WelcomeMes />,
+                path: "",
+                element: <HomeMain />,
+              },
+              {
+                path: "branding",
+                element: <Branding />,
+              },
+              {
+                path: "join-roles",
+                element: <JoinRoles />,
+              },
+              {
+                path: "commands",
+                element: <Commands />,
+              },
+              {
+                path: "logging",
+                element: <Logging />,
+              },
+              {
+                path: "messages",
+                element: <Messages />,
+              },
+              {
+                path: "moderation",
+                element: <Moderation />,
+                children: [
+                  {
+                    path: "message-type",
+                    element: <MessageType />,
+                  },
+                ],
+              },
+              {
+                path: "level-setup",
+                element: <LevelSetup />,
+              },
+              {
+                path: "notification",
+                element: <Notifications />,
+              },
+              {
+                path: "reaction-roles",
+                element: <ReactionRoles />,
+              },
+              {
+                path: "setting",
+                element: <Settings_general />,
+              },
+              {
+                path: "welcome-message",
+                element: <WelcomeMes />,
+              },
+            ],
           },
         ],
+      },{
+        path:'/serverlist',
+        element:<ServerlistPage/>
       }
-    ]
+    ],
   },
   {
-    path:"/login",
-    element:<Login/>
-  }
-  
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

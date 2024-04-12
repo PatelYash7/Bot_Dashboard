@@ -1,10 +1,12 @@
 import React from "react";
 import { useGetserverdata } from "../Hooks/User-data-hook";
 import { ServerWithPresenceObject } from "../Interface";
+import { useNavigate } from "react-router-dom";
 
 export const ServerlistComponent = () => {
   const { userServerWithPresence } = useGetserverdata();
   console.log(userServerWithPresence);
+  
   return (
     <div className="h-screen text-white bg-mainColor">
       <div className="flex items-center justify-center py-12 ">
@@ -64,8 +66,10 @@ export const ServerCard = ({ data }: { data: ServerWithPresenceObject }) => {
 };
 
 const ButtonGo = ({server_id}:{server_id?:string}) => {
+  const navigate = useNavigate();
   const handleClick = ()=>{
-    window.localStorage.setItem("guild_id",server_id as string)
+    window.localStorage.setItem("guild_id",server_id as string);
+    navigate('/')
   }
   return (
     <button onClick={handleClick} className="w-24 h-10 text-center duration-300 ease-in-out rounded-md cursor-pointer hover:bg-sidebarHead transiontion bg-gradient-to-r from-cyan-500 to-blue-500 ">
@@ -79,7 +83,7 @@ const ButtonSetup=({server_id}:{server_id?:string})=>{
     window.open(`https://discord.com/oauth2/authorize?client_id=1075305629641621504&permissions=8&scope=bot&guild_id=${server_id}`, '_blank', 'toolbar=0,location=0,menubar=0');
     setTimeout(()=>{
       window.location.reload();
-    },6000)
+    },10000)
   }
   return (
     <button onClick={handleClick} className="w-24 h-10 text-center duration-300 ease-in-out rounded-md cursor-pointer hover:bg-sidebarHead transiontion bg-gradient-to-r from-emerald-500 to-green-500 ">
