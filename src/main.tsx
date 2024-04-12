@@ -12,7 +12,7 @@ import Messages from "./Pages/Messages.tsx";
 import Moderation from "./Pages/Moderation.tsx";
 import Notifications from "./Pages/Notifications.tsx";
 import ReactionRoles from "./Pages/ReactionRoles.tsx";
-import Settings_general from "./Pages/Settings_general.tsx";
+import Status from "./Pages/Status.tsx";
 import WelcomeMes from "./Pages/WelcomeMes.tsx";
 import ErrorRouter from "./Pages/ErrorRouter.tsx";
 import { RecoilRoot } from "recoil";
@@ -84,8 +84,8 @@ const router = createBrowserRouter([
                 element: <ReactionRoles />,
               },
               {
-                path: "setting",
-                element: <Settings_general />,
+                path: "Status",
+                element: <Status />,
               },
               {
                 path: "welcome-message",

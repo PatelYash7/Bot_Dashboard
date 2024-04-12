@@ -13,9 +13,9 @@ import img11 from "../Resources/images/IconLogging.png"
 
 export const DataSidebar = [
         {
-            name:"General Settings",
+            name:"Status",
             img:img1,
-            route:'/setting'
+            route:'/status'
         },
         {
             name:"Commands",

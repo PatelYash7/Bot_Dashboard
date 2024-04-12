@@ -31,7 +31,6 @@ const DummyData = [
     name: "Juice",
   },
 ];
-const MessageString:string= "Congratulations! You have leveled up to level up"
 function LevelingUp() {
   return (
     <div className="bg-LevelBox rounded-lg w-[80%] px-4 py-4 text-slate-200">
@@ -58,7 +57,9 @@ function LevelingUp() {
       <div className="flex flex-col items-start mt-8">
         <div className="font-medium text-gray-600">Level up announcement Message</div>
         <div className="flex justify-center w-full py-2 my-2 rounded-lg bg-navColor">
-          <textarea className="w-full h-full p-2 outline-none bg-navColor " name="levelup" required>{MessageString}</textarea>
+          <textarea className="w-full h-full p-2 outline-none bg-navColor " name="levelup" required>
+            "Welcome to the Server, Have a Great time here"
+          </textarea>
         </div>
       </div>
     </div>
