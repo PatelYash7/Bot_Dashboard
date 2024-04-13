@@ -25,4 +25,7 @@ export const loading = atom({
     key:"loading",
     default:true
 })
-
+export const ChannelId = atom({
+    key:"ChannelIt",
+    default:""
+})
