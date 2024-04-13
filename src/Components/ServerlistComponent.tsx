@@ -4,9 +4,7 @@ import { ServerWithPresenceObject } from "../Interface";
 import { useNavigate } from "react-router-dom";
 
 export const ServerlistComponent = () => {
-  const { userServerWithPresence } = useGetserverdata();
-  console.log(userServerWithPresence);
-  
+  const { userServerWithPresence } = useGetserverdata();  
   return (
     <div className="h-screen text-white bg-mainColor">
       <div className="flex items-center justify-center py-12 ">
@@ -78,7 +76,6 @@ const ButtonGo = ({server_id}:{server_id?:string}) => {
   );
 };
 const ButtonSetup=({server_id}:{server_id?:string})=>{
-  console.log(server_id)
   const handleClick= ()=>{
     window.open(`https://discord.com/oauth2/authorize?client_id=1075305629641621504&permissions=8&scope=bot&guild_id=${server_id}`, '_blank', 'toolbar=0,location=0,menubar=0');
     setTimeout(()=>{

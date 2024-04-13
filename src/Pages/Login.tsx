@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import Button from "../Components/Button";
+import {Button} from "../Components/Button";
 import { setLogin } from "../Hooks/Login-hook";
 
 function Login() {

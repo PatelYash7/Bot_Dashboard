@@ -4,7 +4,7 @@ interface Props{
     text:string;
     route:string;
 }
-function Button(props:Props) {
+export const  Button=(props:Props)=> {
 
   const{route,text}=props  
   return (
@@ -17,5 +17,15 @@ function Button(props:Props) {
     </div>
   )
 }
-
-export default Button
+export const SubmitButton = ({handleSubmit,text}:{handleSubmit: () => void; text:string}) => {
+  return (
+    <button
+      onClick={() => {
+        handleSubmit();
+      }}
+      className="px-6 py-2 mt-4 text-sm font-medium text-white transition duration-200 bg-green-800 rounded-lg hover:bg-green-500"
+    >
+      {text}
+    </button>
+  );
+};

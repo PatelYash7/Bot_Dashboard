@@ -1,5 +1,5 @@
 import { Switch } from "@mui/material";
-import Button from "../Components/Button";
+import {Button }from "../Components/Button";
 import Heading from "../Components/Heading";
 import Icon from "../Resources/images/IconGit.png";
 import Midheading from "../Components/Midheading";
@@ -9,9 +9,9 @@ function Commands(): JSX.Element {
     <div className="mt-10 ml-8">
       <Heading head={"Commands"} />
       {/* Custom Command */}
-      <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-        <div className="flex justify-center gap-4 items-center  text-white">
-          <img src={Icon} className="h-6 w-6" alt="icn" />
+      <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+        <div className="flex items-center justify-center gap-4 text-white">
+          <img src={Icon} className="w-6 h-6" alt="icn" />
           <div className="">
             <div className="text-xl font-semibold">Custom Commands</div>
             <div className="text-base text-gray-400">
@@ -26,8 +26,8 @@ function Commands(): JSX.Element {
       </div>
 
       {/* Default Command */}
-      <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default hover:bg-hoverbg transition-colors">
-        <div className="flex justify-center gap-4 items-center  text-white">
+      <div className="flex flex-row justify-between px-4 py-4 mt-4 transition-colors rounded-lg cursor-default bg-lightbg hover:bg-hoverbg">
+        <div className="flex items-center justify-center gap-4 text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -68,8 +68,8 @@ function Commands(): JSX.Element {
       </div>
 
       {/* Prefix Section */}
-      <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-        <div className="flex justify-center gap-4 items-center  text-white">
+      <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+        <div className="flex items-center justify-center gap-4 text-white">
           <div className="">
             <div className="text-2xl font-semibold">Prefixes</div>
             <div className="text-base text-gray-400">
@@ -86,8 +86,8 @@ function Commands(): JSX.Element {
       <div className="mt-8 mb-8 ">
         <Midheading head={"Error Message"} />
 
-        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-          <div className="flex justify-center gap-4 items-center  text-white">
+        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+          <div className="flex items-center justify-center gap-4 text-white">
             <div className="">
               <div className="text-2xl font-semibold">Command Not Found</div>
               <div className="text-base text-gray-400">
@@ -105,8 +105,8 @@ function Commands(): JSX.Element {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-          <div className="flex justify-center gap-4 items-center  text-white">
+        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+          <div className="flex items-center justify-center gap-4 text-white">
             <div className="">
               <div className="text-2xl font-semibold">Wrong command Usage</div>
               <div className="text-base text-gray-400">
@@ -124,8 +124,8 @@ function Commands(): JSX.Element {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-          <div className="flex justify-center gap-4 items-center  text-white">
+        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+          <div className="flex items-center justify-center gap-4 text-white">
             <div className="">
               <div className="text-2xl font-semibold">
                 No command Permissions
@@ -145,8 +145,8 @@ function Commands(): JSX.Element {
           </div>
         </div>
 
-        <div className="flex flex-row justify-between mt-4 py-4 px-4 bg-lightbg rounded-lg cursor-default">
-          <div className="flex justify-center gap-4 items-center  text-white">
+        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+          <div className="flex items-center justify-center gap-4 text-white">
             <div className="">
               <div className="text-2xl font-semibold">Disabled in Channel</div>
               <div className="text-base text-gray-400">
