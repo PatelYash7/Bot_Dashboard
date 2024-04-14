@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Heading from "../Components/Heading";
-import axios from "axios";
 import { useSelectChannel, useSetWelcomeMessage } from "../Hooks/Welcome-message-Hook";
 import { SubmitButton } from "../Components/Button";
+import { useGetChannels } from "../Hooks/Channel-hook";
 const defaultText =
   "Hi Username, Welcome to ServerName Have a great time here. Please follow Guidlines.";
 
@@ -14,31 +14,16 @@ interface ChannelListArray {
 function WelcomeMes(): JSX.Element {
   const [message, setMessage] = useState(defaultText);
   const [channelList, setChannelList] = useState<ChannelListArray[]>();
-  const [value, setValue] = useState(channelList?.[0].id);
+  const [value, setValue] = useState<string|unknown>();
   const handleCall = useRef(false);
-  const handleSubmit = async () => {
-    if(value){
-       await useSetWelcomeMessage({message});
-       await useSelectChannel({guild_id:window.localStorage.getItem('guild_id') as string, channel_id:value as string})
-    }else {
-      alert("Select Channel ")
-    }
-  };
-  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
-  };
+
   useEffect(() => {
     if (handleCall.current === false) {
       const fetchData = async () => {
-        const Response = await axios.get(
-          `http://34.233.124.135/server_Channels_List/?guild=${window.localStorage.getItem(
-            "guild_id"
-          )}`
-        );
-        const ChannelArray = Object.entries(Response.data).map(
-          ([channel, id]) => ({ channel, id })
-        );
+        const ChannelArray = await useGetChannels();
+        setValue(ChannelArray[0].id)
         setChannelList(ChannelArray);
+        console.log(ChannelArray);
       };
       fetchData();
     }
@@ -47,6 +32,17 @@ function WelcomeMes(): JSX.Element {
       handleCall.current = true;
     };
   }, []);
+
+  const handleSubmit = async () => {
+    const response = await useSetWelcomeMessage({message});
+    const responseChannel=  await useSelectChannel({guild_id:window.localStorage.getItem('guild_id') as string, channel_id:value as string})
+    if(response && responseChannel){
+      alert("Welcome Message Updated on " + `"${channelList?.find((channel)=>channel.id===value)?.channel}" Channel`)
+    }
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className="mt-10 ml-8">
@@ -58,7 +54,7 @@ function WelcomeMes(): JSX.Element {
         </div>
 
         <div>
-          <select value={value as string} onChange={handleChange}>
+          <select value={value as string} defaultValue={channelList?.[0].id as string} onChange={handleChange}>
             {channelList?.map((channel) => {
               return (
                 <option key={channel.id as string} value={channel.id as string}>{channel.channel}</option>
