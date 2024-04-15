@@ -49,7 +49,7 @@ function LevelingUp() {
           >
             <option className="border-none outline-none bg-navColor" value="">Select Your Channel </option>
             {DummyData.map((item) => (
-              <option className="border-none outline-none bg-navColor" value={item.name}>{item.name}</option>
+              <option key={item.name.charCodeAt(0)} className="border-none outline-none bg-navColor" value={item.name}>{item.name}</option>
             ))}
           </select>
         </div>
@@ -57,8 +57,8 @@ function LevelingUp() {
       <div className="flex flex-col items-start mt-8">
         <div className="font-medium text-gray-600">Level up announcement Message</div>
         <div className="flex justify-center w-full py-2 my-2 rounded-lg bg-navColor">
-          <textarea className="w-full h-full p-2 outline-none bg-navColor " name="levelup" required>
-            "Welcome to the Server, Have a Great time here"
+          <textarea className="w-full h-full p-2 outline-none bg-navColor " name="levelup" defaultValue={"Welcome to the Server, Have a Great time here"} required>
+            
           </textarea>
         </div>
       </div>
