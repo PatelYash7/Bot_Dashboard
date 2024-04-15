@@ -13,10 +13,16 @@ function WelcomeMes(): JSX.Element {
   const ChannelArrays = useRecoilValue(ChannelArray);
 
   const handleSubmit = async () => {
-    const response = await useSetWelcomeMessage({message});
-    const responseChannel=  await useSelectChannel({guild_id:window.localStorage.getItem('guild_id') as string, channel_id:value as string})
-    if(response && responseChannel){
-      alert("Welcome Message Updated on " + `"${ChannelArrays?.find((channel)=>channel.id===value)?.channel}" Channel`)
+    if (value) {
+      const response = await useSetWelcomeMessage({message});
+      const responseChannel=  await useSelectChannel({guild_id:window.localStorage.getItem('guild_id') as string, channel_id:value as string})
+      
+      if(response && responseChannel){
+        alert("Welcome Message Updated on " + `"${ChannelArrays?.find((channel)=>channel.id===value)?.channel}" Channel`)
+      }
+    }
+    else{
+      alert("Please select a channel")
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -33,7 +39,7 @@ function WelcomeMes(): JSX.Element {
         </div>
 
         <div>
-          <select value={value as string} defaultValue={ChannelArrays?.[0].id as string} onChange={handleChange}>
+          <select value={value as string} onChange={handleChange}>
             {ChannelArrays?.map((channel) => {
               return (
                 <option key={channel.id as string} value={channel.id as string}>{channel.channel}</option>
