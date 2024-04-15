@@ -36,6 +36,16 @@ export const DataSidebar = [
 
 export const Modules = [
     {
+        name:"Welcome Message",
+        img:img10,
+        route:'/welcome-message'
+    },
+    {
+        name:"Leave Message",
+        img:img10,
+        route:'/leave-message'
+    },
+    {
         name:"Levels",
         img:img5,
         route:'/level-setup'
@@ -59,11 +69,6 @@ export const Modules = [
         name:"Reaction Roles",
         img:img9,
         route:'/reaction-roles'
-    },
-    {
-        name:"Welcome Messages",
-        img:img10,
-        route:'/welcome-message'
     },
     {
         name:"Logging",

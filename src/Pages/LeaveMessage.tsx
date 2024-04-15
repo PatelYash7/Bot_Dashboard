@@ -1,21 +1,21 @@
 import {useState } from "react";
 import Heading from "../Components/Heading";
-import { useSelectChannel, useSetWelcomeMessage } from "../Hooks/Message-Hook";
+import { useSelectLeaveChannel, useSetLeaveMessage } from "../Hooks/Message-Hook";
 import { SubmitButton } from "../Components/Button";
 import { useRecoilValue } from "recoil";
 import { ChannelArray } from "../Atoms/State";
 const defaultText =
-  "Hi Username, Welcome to ServerName Have a great time here. Please follow Guidlines.";
+  "Sorry, We are Sad that your Leaving the Server, Have a great time elsewhere.Goodbye (Gaddari karbe Gaddari karbe)";
 
-function WelcomeMes(): JSX.Element {
+function LeaveMessage(): JSX.Element {
   const [message, setMessage] = useState(defaultText);
   const [value, setValue] = useState<string|unknown>();
   const ChannelArrays = useRecoilValue(ChannelArray);
 
   const handleSubmit = async () => {
     if (value) {
-      const response = await useSetWelcomeMessage({message});
-      const responseChannel=  await useSelectChannel({guild_id:window.localStorage.getItem('guild_id') as string, channel_id:value as string})
+      const response = await useSetLeaveMessage({message});
+      const responseChannel=  await useSelectLeaveChannel({guild_id:window.localStorage.getItem('guild_id') as string, channel_id:value as string})
       
       if(response && responseChannel){
         alert("Welcome Message Updated on " + `"${ChannelArrays?.find((channel)=>channel.id===value)?.channel}" Channel`)
@@ -31,11 +31,11 @@ function WelcomeMes(): JSX.Element {
 
   return (
     <div className="mt-10 ml-8">
-      <Heading head="Welcome Message" />
+      <Heading head="Leave Message" />
 
       <div className="flex flex-col gap-4 mt-4">
         <div className="text-base font-medium text-gray-400 ">
-          Enter the Welcome message here.
+          Enter the Leave message here.
         </div>
 
         <div>
@@ -65,6 +65,6 @@ function WelcomeMes(): JSX.Element {
   );
 }
 
-export default WelcomeMes;
+export default LeaveMessage;
 
 

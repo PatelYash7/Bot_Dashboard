@@ -22,6 +22,7 @@ import ProtectedRoute from "./Pages/ProtectedRoute.tsx";
 import Login from "./Pages/Login.tsx";
 import { MainRoute } from "./Pages/MainRoute.tsx";
 import { ServerlistPage } from "./Pages/ServerlistPage.tsx";
+import LeaveMessage from "./Pages/LeaveMessage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
               {
                 path: "welcome-message",
                 element: <WelcomeMes />,
+              },
+              {
+                path: "leave-message",
+                element: <LeaveMessage />,
               },
             ],
           },
