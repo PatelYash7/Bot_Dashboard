@@ -51,3 +51,8 @@ export interface ServerWithPresenceObject {
   isPresent?: boolean,
   iconURL?:string
 }
+
+export interface ChannelListArray {
+  channel: string;
+  id: string | unknown;
+}

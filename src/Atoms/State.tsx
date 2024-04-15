@@ -1,5 +1,5 @@
 import { atom} from "recoil";
-import { Guild, User, userData} from "../Interface";
+import { ChannelListArray, Guild, User, userData} from "../Interface";
 
 export const toggleState = atom({
     key: "toggleState",
@@ -28,4 +28,9 @@ export const loading = atom({
 export const ChannelId = atom({
     key:"ChannelIt",
     default:""
+})
+
+export const ChannelArray = atom<ChannelListArray[]>({
+    key:"ChannelArrayInterface",
+    default: [] as ChannelListArray[]
 })
