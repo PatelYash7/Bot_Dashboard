@@ -28,7 +28,7 @@ export const getData = () => {
     if (effectRan.current === false && id===null) {
       const fetchData = async () => {
         
-        const Response = await axios.get(`http://34.233.124.135/callback/?code=${code}`);
+        const Response = await axios.get(`${import.meta.env.VITE_IP}callback/?code=${code}`);
         if(Response.data){
           await window.localStorage.setItem("id",Response.data.user.id)
           setidData(Response.data.user.id);

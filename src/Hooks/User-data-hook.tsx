@@ -14,7 +14,7 @@ export const useUserData = () => {
     if (effectRan.current === false) {
       const fetchData = async () => {
         const Response = await axios.get(
-          `http://34.233.124.135/available_users?user_id=${id}`
+          `${import.meta.env.VITE_IP}available_users?user_id=${id}`
         );
         setLoader(false);
         setUser(Response.data);
@@ -35,7 +35,7 @@ export const useGetserverdata = () => {
   useEffect(() => {
     if (effectRan.current === true) {
       const fetchData = async () => {
-        const Response = await axios.get(`http://34.233.124.135/server_List/`);
+        const Response = await axios.get(`${import.meta.env.VITE_IP}server_List/`);
         setTotalServer(Response.data);
       };
       fetchData();
