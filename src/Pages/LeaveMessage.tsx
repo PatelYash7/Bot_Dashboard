@@ -4,6 +4,7 @@ import { useSelectLeaveChannel, useSetLeaveMessage } from "../Hooks/Message-Hook
 import { SubmitButton } from "../Components/Button";
 import { useRecoilValue } from "recoil";
 import { ChannelArray } from "../Atoms/State";
+import { MenuDropdown } from "../Components/MenuDropdown";
 const defaultText =
   "Sorry, We are Sad that your Leaving the Server, Have a great time elsewhere.Goodbye (Gaddari karbe Gaddari karbe)";
 
@@ -39,13 +40,7 @@ function LeaveMessage(): JSX.Element {
         </div>
 
         <div>
-          <select value={value as string} onChange={handleChange}>
-            {ChannelArrays?.map((channel) => {
-              return (
-                <option key={channel.id as string} value={channel.id as string}>{channel.channel}</option>
-              );
-            })}
-          </select>
+          <MenuDropdown value={value as string} handleChange={handleChange}/>
         </div>
 
         <textarea

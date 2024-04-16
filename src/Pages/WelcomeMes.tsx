@@ -4,6 +4,7 @@ import { useSelectChannel, useSetWelcomeMessage } from "../Hooks/Message-Hook";
 import { SubmitButton } from "../Components/Button";
 import { useRecoilValue } from "recoil";
 import { ChannelArray } from "../Atoms/State";
+import { MenuDropdown } from "../Components/MenuDropdown";
 const defaultText =
   "Hi Username, Welcome to ServerName Have a great time here. Please follow Guidlines.";
 
@@ -39,13 +40,7 @@ function WelcomeMes(): JSX.Element {
         </div>
 
         <div>
-          <select value={value as string} onChange={handleChange}>
-            {ChannelArrays?.map((channel) => {
-              return (
-                <option key={channel.id as string} value={channel.id as string}>{channel.channel}</option>
-              );
-            })}
-          </select>
+          <MenuDropdown handleChange={handleChange} value={value}/>
         </div>
 
         <textarea
