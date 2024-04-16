@@ -7,3 +7,8 @@ export const useGetRoles = async () =>{
       );
     return Roles;
 }
+
+export const useSetJoinMemberRole = async ({channel_id,role_id}:{channel_id:string,role_id:string}) =>{
+    const Response = await axios.post(`${import.meta.env.VITE_IP}join_member_role/?guild=${window.localStorage.getItem('guild_id')}&channel=${channel_id}&role=${role_id}`);
+    return await Response.data;
+}

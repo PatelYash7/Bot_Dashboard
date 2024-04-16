@@ -31,11 +31,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainRoute/>,
+        element: <MainRoute />,
         children: [
           {
             path: "",
-            element: <Home/>,
+            element: <Home />,
             errorElement: <ErrorRouter />,
             children: [
               {
@@ -99,10 +99,11 @@ const router = createBrowserRouter([
             ],
           },
         ],
-      },{
-        path:'/serverlist',
-        element:<ServerlistPage/>
-      }
+      },
+      {
+        path: "/serverlist",
+        element: <ServerlistPage />,
+      },
     ],
   },
   {

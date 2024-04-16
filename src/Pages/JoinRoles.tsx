@@ -1,17 +1,29 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Heading from "../Components/Heading"
+import { useRecoilValue } from "recoil";
+import { RoleArray } from "../Atoms/State";
+import { MenuDropdown } from "../Components/MenuDropdown";
+import { SubmitButton } from "../Components/Button";
+import { useSetJoinMemberRole } from "../Hooks/Roles-hook";
 
 function JoinRoles(): JSX.Element {
-  const roles:string[]=["User","Mod"]
-  const [options, setOptions] = useState(roles);
-  const [inputVal, setInputVal] = useState("");
+  const roles = useRecoilValue(RoleArray);
+  const [roleId, setroleId] = useState("");
+  const [channelid,setChannelid] = useState("");
 
-  const addOptions = () => {
-    if (inputVal.trim() !== "") {
-      setOptions([...options, inputVal]);
-      setInputVal("");
-    }
+  
+  const handleChange = (e:React.ChangeEvent<HTMLSelectElement>) => {
+    setroleId(e.target.value);
   };
+  const handleChangeChannel = (e:React.ChangeEvent<HTMLSelectElement>) => {
+  setChannelid(e.target.value);
+  };
+  const handleSubmit = async ()=>{
+    if(roleId && channelid){
+      const response = await useSetJoinMemberRole({channel_id:channelid,role_id:roleId})
+      console.log(response)
+    }
+  }
   return (
     <div className="mt-10 ml-8">
       <Heading head="Join Roles" />
@@ -22,30 +34,15 @@ function JoinRoles(): JSX.Element {
             All roles listed below will be assigned to every user who joins the
             server.
           </div>
-          <div className="flex items-center justify-between ">
-            <div className="flex flex-col my-2">
-              <input type="text" className="px-2 py-1 text-white rounded-lg outline-none bg-navColor" placeholder="Enter Role" value={inputVal} onChange={(e)=>{setInputVal(e.target.value)}} />
-            </div>
-            <div>
-              <button className="px-5 py-1 mr-4 font-medium text-center text-white rounded-md bg-gradient-to-r from-cyan-500 to-blue-500" onClick={addOptions}>Add</button>
-            </div>
-          </div>
           <div className="flex flex-col mt-3">
             <label htmlFor="dropdown" className="text-base font-medium text-white"> Select Role</label>
-            <select id="dropdown" className="px-2 py-1 text-white rounded-lg outline-none bg-navColor">
-              {options.map((option,key)=>{
-                return <option key={key} value={option}>{option}</option>
-              })}
-            </select>
+            <MenuDropdown handleChange={handleChange} value={roleId} roles={roles} />
           </div>
           <div className="flex flex-col mt-3">
             <label htmlFor="dropdown" className="text-base font-medium text-white"> Select Channel</label>
-            <select id="dropdown" className="px-2 py-1 text-white rounded-lg outline-none bg-navColor">
-              {options.map((option,key)=>{
-                return <option key={key} value={option}>{option}</option>
-              })}
-            </select>
+            <MenuDropdown handleChange={handleChangeChannel} value={channelid}/>
           </div>
+          <SubmitButton handleSubmit={handleSubmit} text="submit"/>
         </div>
       </div>
     </div>
