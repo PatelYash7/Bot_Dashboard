@@ -56,3 +56,7 @@ export interface ChannelListArray {
   channel: string;
   id: string | unknown;
 }
+export interface Roles {
+  role:string,
+  id:string | unknown
+}
