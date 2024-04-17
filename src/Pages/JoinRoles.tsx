@@ -21,7 +21,7 @@ function JoinRoles(): JSX.Element {
   const handleSubmit = async ()=>{
     if(roleId && channelid){
       const response = await useSetJoinMemberRole({channel_id:channelid,role_id:roleId})
-      console.log(response)
+      alert(response.message);
     }
   }
   return (

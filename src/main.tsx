@@ -9,14 +9,12 @@ import JoinRoles from "./Pages/JoinRoles.tsx";
 import Commands from "./Pages/Commands.tsx";
 import Logging from "./Pages/Logging.tsx";
 import Messages from "./Pages/Messages.tsx";
-import Moderation from "./Pages/Moderation.tsx";
 import Notifications from "./Pages/Notifications.tsx";
 import ReactionRoles from "./Pages/ReactionRoles.tsx";
 import Status from "./Pages/Status.tsx";
 import WelcomeMes from "./Pages/WelcomeMes.tsx";
 import ErrorRouter from "./Pages/ErrorRouter.tsx";
 import { RecoilRoot } from "recoil";
-import MessageType from "./Components/MessageType.tsx";
 import LevelSetup from "./Pages/LevelSetup.tsx";
 import ProtectedRoute from "./Pages/ProtectedRoute.tsx";
 import Login from "./Pages/Login.tsx";
@@ -62,16 +60,16 @@ const router = createBrowserRouter([
                 path: "messages",
                 element: <Messages />,
               },
-              {
-                path: "moderation",
-                element: <Moderation />,
-                children: [
-                  {
-                    path: "message-type",
-                    element: <MessageType />,
-                  },
-                ],
-              },
+              // {
+              //   path: "moderation",
+              //   element: <Moderation />,
+              //   children: [
+              //     {
+              //       path: "message-type",
+              //       element: <MessageType />,
+              //     },
+              //   ],
+              // },
               {
                 path: "level-setup",
                 element: <LevelSetup />,

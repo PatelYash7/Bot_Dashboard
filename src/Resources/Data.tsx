@@ -4,7 +4,6 @@ import img3 from "../Resources/images/IconChat.png"
 import img4 from "../Resources/images/IconBranding.png"
 
 import img5 from "../Resources/images/IconAutoModeration.png"
-import img6 from "../Resources/images/IconModeration.png"
 import img7 from "../Resources/images/IconNotification.png"
 import img8 from "../Resources/images/IconRoles.png"
 import img9 from "../Resources/images/IconReactionRole.png"
@@ -50,11 +49,11 @@ export const Modules = [
         img:img5,
         route:'/level-setup'
     },
-    {
-        name:"Moderation",
-        img:img6,
-        route:'/moderation'
-    },
+    // {
+    //     name:"Moderation",
+    //     img:img6,
+    //     route:'/moderation'
+    // },
     {
         name:"Social Notifications",
         img:img7,
