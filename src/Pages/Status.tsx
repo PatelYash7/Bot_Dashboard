@@ -2,24 +2,51 @@ import { Switch } from "@mui/material";
 import Heading from "../Components/Heading";
 import { Button } from "../Components/Button";
 import { useState } from "react";
-import { useChangeStatusMessage } from "../Hooks/Status-hook";
+import { useChangeStatusImageChannel, useChangeStatusLevelSystem, useChangeStatusLinkChannel, useChangeStatusMessage, useChangeStatusSocialNotification, useChangeStatusleaveMessage } from "../Hooks/Status-hook";
 
 function Settings_general(): JSX.Element {
-  const [value,setValue] = useState(false);
+  const [welcome,setWelcome] = useState(false);
+  const [leave,setLeave] = useState(false);
+  const [level,setLevel] = useState(false)
+  const [notification,setnotification] = useState(false)
+  const [image,setImage] = useState(false)
+  const [Link,setLink] = useState(false)
+
   const handleChangeWelcomeMessage = async ()=>{
-    await setValue(!value);
-    const Response = await useChangeStatusMessage({bool:!value})
-    console.log(Response)
+    await setWelcome(!welcome);
+    await useChangeStatusMessage({bool:!welcome})
+  }
+  const handleChangeLeaveMessage = async ()=>{
+    await setLeave(!leave)
+    await useChangeStatusleaveMessage({bool:!leave})
+  }
+  const handleChangeLevelSystem = async ()=>{
+    await setLevel(!level)
+    await useChangeStatusLevelSystem({bool:!level})
+  }
+  const handleChangeNotificationSetup= async()=>{
+    await setnotification(!notification)
+    await useChangeStatusSocialNotification({bool:!notification})
+  }
+  const handleChangeImageStatus=async()=>{
+    await setImage(!image)
+    await useChangeStatusImageChannel({bool:!image})
+  }
+  const handleChangeLinkStatus=async()=>{
+    await setLink(!Link)
+    await useChangeStatusLinkChannel({bool:!Link})
   }
 
   return (
     <div className="flex flex-col mt-10 mb-5 ml-8">
-      <Heading head={"Server Status"} />
-      <div className="grid grid-cols-3 gap-4 mt-8">
-        <CardBox heading="Welcome Message" value={value} handleChange={handleChangeWelcomeMessage} route="welcome-message"/>
-        <CardBox heading="Welcome Message" value={value} handleChange={handleChangeWelcomeMessage} route="welcome-message"/>
-        {/* <CardBox/>
-        <CardBox/> */}
+      <Heading head={"Feature Status"} />
+      <div className="grid grid-cols-2 gap-4 mt-8">
+        <CardBox heading="Welcome Message" value={welcome} handleChange={handleChangeWelcomeMessage} route="welcome-message"/>
+        <CardBox heading="Leave Message" value={leave} handleChange={handleChangeLeaveMessage} route="leave-message"/>
+        <CardBox heading="Level System" value={level} handleChange={handleChangeLevelSystem} route="level-setup"/>
+        <CardBox heading="Social Notification" value={notification} handleChange={handleChangeNotificationSetup} route="notification"/>
+        <CardBox heading="Image Channel " value={image} handleChange={handleChangeImageStatus} route="Channel-content"/>
+        <CardBox heading="Link Channel" value={Link} handleChange={handleChangeLinkStatus} route="Channel-content"/>
       </div>
       
     </div>
