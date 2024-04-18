@@ -1,25 +1,49 @@
-import { Switch } from "@mui/material";
 import { Button, SubmitButton } from "../Components/Button";
 import Heading from "../Components/Heading";
 import Icon from "../Resources/images/IconGit.png";
-import Midheading from "../Components/Midheading";
 import React, { useState } from "react";
 import { useSetPrefix } from "../Hooks/Command-hook";
 
 function Commands(): JSX.Element {
-  const [prefix,Setprefix] = useState("")
-  const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
-    Setprefix(e.target.value)
-  }
-  const handleSubmit = async ()=>{
-    if(prefix){
-      const Response= await useSetPrefix({new_prefix:prefix})
-      console.log(Response)
+  const [prefix, Setprefix] = useState("");
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    Setprefix(e.target.value);
+  };
+  const handleSubmit = async () => {
+    if (prefix) {
+      const Response = await useSetPrefix({ new_prefix: prefix });
+      console.log(Response);
+      alert(Response);
     }
-  }
+  };
   return (
     <div className="mt-10 ml-8">
       <Heading head={"Commands"} />
+
+      {/* Prefix Section */}
+      <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
+        <div className="flex items-center justify-center gap-4 text-white">
+          <div className="">
+            <div className="text-2xl font-semibold">Prefixes</div>
+            <div className="text-base text-gray-400">
+              Put one of the following Prefixes in front of your message to
+              execute Bot Commands
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col justify-center">
+          <input
+            type="text"
+            placeholder=" Spcl Char only"
+            className="px-3 py-2 text-white rounded-lg bg-navColor"
+            onChange={handleChange}
+          ></input>
+        </div>
+        <div className="flex items-center justify-center ">
+          <SubmitButton handleSubmit={handleSubmit} text="Submit" />
+        </div>
+      </div>
+
       {/* Custom Command */}
       <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
         <div className="flex items-center justify-center gap-4 text-white">
@@ -79,112 +103,6 @@ function Commands(): JSX.Element {
         </div>
       </div>
 
-      {/* Prefix Section */}
-      <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
-        <div className="flex items-center justify-center gap-4 text-white">
-          <div className="">
-            <div className="text-2xl font-semibold">Prefixes</div>
-            <div className="text-base text-gray-400">
-              Put one of the following Prefixes in front of your message to
-              execute Bot Commands
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col justify-center">
-          <input
-            type="text"
-            placeholder="Enter Special Character"
-            className="px-3 py-2 text-white rounded-lg bg-navColor"
-            onChange={handleChange}
-          ></input>
-        </div>
-        <div className="flex items-center justify-center ">
-          <SubmitButton handleSubmit={handleSubmit} text="Submit" />
-        </div>
-      </div>
-
-      <div className="mt-8 mb-8 ">
-        <Midheading head={"Error Message"} />
-
-        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
-          <div className="flex items-center justify-center gap-4 text-white">
-            <div className="">
-              <div className="text-2xl font-semibold">Command Not Found</div>
-              <div className="text-base text-gray-400">
-                Sent when an executed command doesn't exist.
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center ">
-            <Switch
-              // checked={checked}
-              // onChange={handleChange}
-              color={"success"}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
-          <div className="flex items-center justify-center gap-4 text-white">
-            <div className="">
-              <div className="text-2xl font-semibold">Wrong command Usage</div>
-              <div className="text-base text-gray-400">
-                sent when an existing command is used incorrectly.
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center ">
-            <Switch
-              // checked={checked}
-              // onChange={handleChange}
-              color={"success"}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
-          <div className="flex items-center justify-center gap-4 text-white">
-            <div className="">
-              <div className="text-2xl font-semibold">
-                No command Permissions
-              </div>
-              <div className="text-base text-gray-400">
-                sent when an unpermitted user is executing an existing command.
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center ">
-            <Switch
-              // checked={checked}
-              // onChange={handleChange}
-              color={"success"}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-          </div>
-        </div>
-
-        <div className="flex flex-row justify-between px-4 py-4 mt-4 rounded-lg cursor-default bg-lightbg">
-          <div className="flex items-center justify-center gap-4 text-white">
-            <div className="">
-              <div className="text-2xl font-semibold">Disabled in Channel</div>
-              <div className="text-base text-gray-400">
-                Sent when an existing command is executed in channels where its
-                disabled
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-center ">
-            <Switch
-              // checked={checked}
-              // onChange={handleChange}
-              color={"success"}
-              inputProps={{ "aria-label": "controlled" }}
-            />
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
