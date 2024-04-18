@@ -7,7 +7,7 @@ export const MenuDropdown = ({handleChange,value,roles}: {handleChange: (e: Reac
   return (
     
       <select
-        className="px-2 py-2 mx-4 my-4 text-white rounded outline-none bg-navColor"
+        className="px-2 py-2 mx-4 my-4 text-white rounded outline-none min-w-40 bg-navColor"
         name="levelup"
         value={value as string}
         // defaultValue={}
@@ -17,7 +17,7 @@ export const MenuDropdown = ({handleChange,value,roles}: {handleChange: (e: Reac
         {roles? roles.map((item) => (
           <option
             key={item.id as string}
-            className="p-3 border-none outline-none bg-navColor"
+            className="p-3 border-none outline-none min-w-24 bg-navColor"
             value={item.id as string}
           >
             {item.role}

@@ -8,7 +8,7 @@ import Branding from "./Pages/Branding.tsx";
 import JoinRoles from "./Pages/JoinRoles.tsx";
 import Commands from "./Pages/Commands.tsx";
 import Logging from "./Pages/Logging.tsx";
-import Messages from "./Pages/Messages.tsx";
+import Messages from "./Pages/ChannelContent.tsx";
 import Notifications from "./Pages/Notifications.tsx";
 import ReactionRoles from "./Pages/ReactionRoles.tsx";
 import Status from "./Pages/Status.tsx";
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
                 element: <Logging />,
               },
               {
-                path: "messages",
+                path: "channel-content",
                 element: <Messages />,
               },
               // {

@@ -22,9 +22,9 @@ export const DataSidebar = [
             route:'/commands'
         },
         {
-            name:"Messages",
+            name:"Channel Content",
             img:img3,
-            route:'/messages'
+            route:'/Channel-content'
         },
         {
             name:"Custom Branding",
