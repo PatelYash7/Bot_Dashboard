@@ -1,10 +1,22 @@
 import { Switch } from "@mui/material";
-import {Button }from "../Components/Button";
+import { Button, SubmitButton } from "../Components/Button";
 import Heading from "../Components/Heading";
 import Icon from "../Resources/images/IconGit.png";
 import Midheading from "../Components/Midheading";
+import React, { useState } from "react";
+import { useSetPrefix } from "../Hooks/Command-hook";
 
 function Commands(): JSX.Element {
+  const [prefix,Setprefix] = useState("")
+  const handleChange = (e:React.ChangeEvent<HTMLInputElement>)=>{
+    Setprefix(e.target.value)
+  }
+  const handleSubmit = async ()=>{
+    if(prefix){
+      const Response= await useSetPrefix({new_prefix:prefix})
+      console.log(Response)
+    }
+  }
   return (
     <div className="mt-10 ml-8">
       <Heading head={"Commands"} />
@@ -78,8 +90,16 @@ function Commands(): JSX.Element {
             </div>
           </div>
         </div>
+        <div className="flex flex-col justify-center">
+          <input
+            type="text"
+            placeholder="Enter Special Character"
+            className="px-3 py-2 text-white rounded-lg bg-navColor"
+            onChange={handleChange}
+          ></input>
+        </div>
         <div className="flex items-center justify-center ">
-          <Button text={"Add prefix"} route="/custom-command" />
+          <SubmitButton handleSubmit={handleSubmit} text="Submit" />
         </div>
       </div>
 
@@ -164,7 +184,6 @@ function Commands(): JSX.Element {
             />
           </div>
         </div>
-
       </div>
     </div>
   );

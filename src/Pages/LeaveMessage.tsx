@@ -55,7 +55,10 @@ function LeaveMessage(): JSX.Element {
           rows={10}
         ></textarea>
       </div>
+      <div className="mt-4">
+
       <SubmitButton handleSubmit={handleSubmit}  text="Submit"/>
+      </div>
     </div>
   );
 }

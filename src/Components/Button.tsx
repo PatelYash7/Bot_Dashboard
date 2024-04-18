@@ -23,7 +23,7 @@ export const SubmitButton = ({handleSubmit,text}:{handleSubmit: () => void; text
       onClick={() => {
         handleSubmit();
       }}
-      className="px-6 py-2 mt-4 text-sm font-medium text-white transition duration-200 bg-green-800 rounded-lg hover:bg-green-500"
+      className="px-6 py-2 text-sm font-medium text-white transition duration-200 bg-green-800 rounded-lg hover:bg-green-500"
     >
       {text}
     </button>
