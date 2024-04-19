@@ -1,6 +1,9 @@
 function Logging():JSX.Element {
   return (
-    <div>Logging</div>
+    
+    <div className="flex items-center justify-center h-screen text-3xl font-bold text-white">
+        Comming Soon,Stay Tuned!!!
+    </div>
   )
 }
 

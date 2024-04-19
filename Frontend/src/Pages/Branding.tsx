@@ -1,6 +1,8 @@
 function Branding(): JSX.Element {
   return (
-    <div>Branding</div>
+    <div className="flex items-center justify-center h-screen text-3xl font-bold text-white">
+        Comming Soon,Stay Tuned!!!
+    </div>
   )
 }
 

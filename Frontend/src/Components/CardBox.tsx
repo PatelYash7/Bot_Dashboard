@@ -7,31 +7,31 @@ function CardBox(): JSX.Element {
         <Card
           heading={"Custom Messages"}
           img={MessageIcon}
-          description={"Create Custom Messages to be sent to your customers.lorem ipsum hjaskdhafjkjkasbfjlkafjbfjfasjlkfdlsjfdsdbdjsda jsfdhfjakh fljksadhfj"}
+          description={"Create Custom Messages to be sent to your customers."}
           buttonDesc={"Create Message"}
-          route="/messages"  
+          route="/welcome-message"  
         
         />
         <Card
-          heading={"Moderation Cases"}
+          heading={"Leave Message"}
           img={MessageIcon}
-          description={"View And edit all moderation cases using the dashboard"}
-          buttonDesc={"View Cases"}
-          route="/moderation"  
+          description={"Leave a Custome Message when User left the Server"}
+          buttonDesc={"Leave Message"}
+          route="/leave-message"  
         />
         <Card
-          heading={"User reports"}
+          heading={"Level"}
           img={MessageIcon}
-          description={"Allow Users to Reports other and fully Customize how to handle them"}
-          buttonDesc={"Configure Reports"}
-          route="/moderation"  
+          description={"Level up the Users based on their Activity and Give Rewards"}
+          buttonDesc={"Setup Level"}
+          route="/level-setup"  
         />
         <Card
-          heading={"Role Greetings"}
+          heading={"Social Notification"}
           img={MessageIcon}
-          description={"Welcome Users to their new role by using Bots role assignment messages"}
-          buttonDesc={"Show Role Messages"}
-          route="/welcome-message"  
+          description={"Notifiy the Users on Post and Updates from your Socials like Youtube"}
+          buttonDesc={"Set Notification"}
+          route="/notification"  
         />
         <Card
           heading={"Prefix"}
