@@ -8,7 +8,7 @@ function Navbar(): JSX.Element {
       <div className="flex items-center justify-between h-12 min-w-full gap-8">
         <div className="flex items-center gap-8">
           {/* Logo and Name */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-default">
             <img src={image}  className="w-10 h-10 rounded-2xl"alt="" />
             <p className="text-white">TechTOnion</p>
           </div>

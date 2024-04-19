@@ -18,7 +18,7 @@ function Userprofile(props: Props): JSX.Element {
         <div className="w-5 h-5 rounded">
           <img src={img} className="w-full h-full rounded-full" alt="" />
         </div>
-        <div className="text-sm font-medium text-white">{name}</div>
+        <div className="text-sm font-medium text-white cursor-default">{name}</div>
       </div>
       {/* Logo */}
       <div className="flex items-center justify-center text-center text-white">
